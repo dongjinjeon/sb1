@@ -1,0 +1,60 @@
+---
+import Layout from '../layouts/Layout.astro';
+import BlogPost from '../components/BlogPost.astro';
+
+const blogPosts = [
+  {
+    title: "첫 번째 블로그 포스트",
+    date: "2023-05-01",
+    description: "이것은 첫 번째 블로그 포스트입니다.",
+    url: "/blog/first-post"
+  },
+  {
+    title: "두 번째 블로그 포스트",
+    date: "2023-05-15",
+    description: "이것은 두 번째 블로그 포스트입니다.",
+    url: "/blog/second-post"
+  },
+  {
+    title: "세 번째 블로그 포스트",
+    date: "2023-05-30",
+    description: "이것은 세 번째 블로그 포스트입니다.",
+    url: "/blog/third-post"
+  }
+];
+---
+
+<Layout title="블로그">
+  <main>
+    <h1>블로그</h1>
+    <section>
+      {blogPosts.map(post => (
+        <BlogPost
+          title={post.title}
+          date={post.date}
+          description={post.description}
+          url={post.url}
+        />
+      ))}
+    </section>
+  </main>
+</Layout>
+
+<style>
+  main {
+    margin: auto;
+    padding: 1rem;
+    width: 800px;
+    max-width: calc(100% - 2rem);
+    color: #333;
+    font-size: 20px;
+    line-height: 1.6;
+  }
+  h1 {
+    font-size: 3rem;
+    font-weight: 700;
+    line-height: 1;
+    text-align: center;
+    margin-bottom: 1em;
+  }
+</style>

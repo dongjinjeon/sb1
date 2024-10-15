@@ -1,0 +1,46 @@
+---
+interface Props {
+  title: string;
+  date: string;
+  description: string;
+  url: string;
+}
+
+const { title, date, description, url } = Astro.props;
+---
+
+<article class="blog-post">
+  <h2><a href={url}>{title}</a></h2>
+  <p class="date">{date}</p>
+  <p>{description}</p>
+</article>
+
+<style>
+  .blog-post {
+    background-color: #fff;
+    border-radius: 8px;
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  h2 {
+    margin: 0 0 0.5rem 0;
+    font-size: 1.5rem;
+  }
+  h2 a {
+    color: #2c3e50;
+    text-decoration: none;
+    transition: color 0.3s ease;
+  }
+  h2 a:hover {
+    color: #3498db;
+  }
+  .date {
+    color: #7f8c8d;
+    font-size: 0.9rem;
+    margin-bottom: 0.5rem;
+  }
+  p {
+    margin: 0;
+  }
+</style>
